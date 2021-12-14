@@ -15,6 +15,8 @@ import _thread as thread
 import getAudio
 import WebITS
 import text2text
+import text2audio
+import os
 
 STATUS_FIRST_FRAME = 0  # 第一帧的标识
 STATUS_CONTINUE_FRAME = 1  # 中间帧标识
@@ -177,5 +179,12 @@ if __name__ == "__main__":
     #回答
     answerText = text2text.textBack(res)
     print("text to text: %s" % answerText)
+    text2audio.getAudio(answerText)
+    os.chdir(r'D:\AI\wav2lip')
+    print(os.getcwd())
+    os.system('python inference.py --checkpoint_path D:\\AI\\wav2lip\\checkpoints\\wav2lip_gan.pth --face D:\\AI\\tests\\video\\trump2.mp4 --audio D:\\AI\\process\\temp.wav')
+
+
+
 
 
