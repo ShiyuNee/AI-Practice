@@ -13,7 +13,7 @@ from datetime import datetime
 from time import mktime
 import _thread as thread
 import getAudio
-import WebITS
+import CHN2Eng
 import text2text
 import text2audio
 import os
@@ -172,7 +172,7 @@ if __name__ == "__main__":
 
     # 翻译
     host = "itrans.xfyun.cn"
-    gClass = WebITS.get_result(host, res)
+    gClass = CHN2Eng.get_result(host, res)
     translateText = gClass.call_url()
     print('translate text: %s' % translateText)
 
