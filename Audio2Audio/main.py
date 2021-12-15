@@ -159,8 +159,8 @@ if __name__ == "__main__":
     getAudio.start_audio(5, filename)
     filename += '.pcm'
     time1 = datetime.now()
-    wsParam = Ws_Param(APPID='82b679ef', APISecret='ODU4ZjY1NTc3ZjNlYTU0YWZlM2NlMWY3',
-                       APIKey='eaf478b79fd160c243408bd15a8992ef',
+    wsParam = Ws_Param(APPID=APPID, APISecret=APISecret,
+                       APIKey=APIKey,
                        AudioFile=filename)
     websocket.enableTrace(False)
     wsUrl = wsParam.create_url()
