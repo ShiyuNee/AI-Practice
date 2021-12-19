@@ -31,7 +31,7 @@ def getAudio(text):
         resp = client.TextToVoice(req)
         wav_string = eval(resp.to_json_string())['Audio']
 
-        wav_file = open(r"D:\AI\process\temp.wav", "wb")
+        wav_file = open(r"D:\AI\Audio2Audio\temp.wav", "wb")
         decode_string = base64.b64decode(wav_string)
         wav_file.write(decode_string)
         wav_file.close()

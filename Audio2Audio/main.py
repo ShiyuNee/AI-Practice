@@ -182,7 +182,7 @@ if __name__ == "__main__":
     text2audio.getAudio(answerText)
     os.chdir(r'D:\AI\wav2lip')
     print(os.getcwd())
-    os.system('python inference.py --checkpoint_path D:\\AI\\wav2lip\\checkpoints\\wav2lip_gan.pth --face D:\\AI\\tests\\video\\trump2.mp4 --audio D:\\AI\\process\\temp.wav')
+    os.system('python inference.py --checkpoint_path D:\\AI\\wav2lip\\checkpoints\\wav2lip_gan.pth --face D:\\AI\\wav2lip\\tests\\video\\trump2.mp4 --audio D:\\AI\\Audio2Audio\\temp.wav')
 
 
 
