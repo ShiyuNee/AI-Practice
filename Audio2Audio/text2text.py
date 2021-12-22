@@ -8,7 +8,7 @@ from tencentcloud.tbp.v20190627 import tbp_client, models
 
 def textBack(inputText):
     try:
-        cred = credential.Credential(SecretId, SecretKey)
+        cred = credential.Credential('AKIDvc3E8l7D3cuve6HDsHPHtEI5cttc4GBp', 'OWNwDEyRdYCZfU3LQEm33mFRM0SeZDZf')
         httpProfile = HttpProfile()
         httpProfile.endpoint = "tbp.tencentcloudapi.com"
 
@@ -20,7 +20,7 @@ def textBack(inputText):
         params = {
             "BotId": "6292a70a-7034-4f4d-adfb-23534abce1c1",
             "BotEnv": "dev",
-            "TerminalId": TerminalId,
+            "TerminalId": '302000009733',
             "InputText": inputText
         }
         req.from_json_string(json.dumps(params))

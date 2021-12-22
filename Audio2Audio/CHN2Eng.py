@@ -19,11 +19,11 @@ import json
 class get_result(object):
     def __init__(self,host,sentence):
         # 应用ID（到控制台获取）
-        self.APPID = APPID
+        self.APPID = "88a88123"
         # 接口APISercet（到控制台机器翻译服务页面获取）
-        self.Secret = Secret
+        self.Secret = 'MjkwZDNlNTJlNTkwZTY1NDA2NTcwOWEw'
         # 接口APIKey（到控制台机器翻译服务页面获取）
-        self.APIKey= APIKey
+        self.APIKey= '8d9579160b77ce75a307b216a224d3ee'
         
         
         # 以下为POST请求

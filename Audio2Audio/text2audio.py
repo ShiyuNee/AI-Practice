@@ -11,7 +11,7 @@ from tencentcloud.tts.v20190823 import tts_client, models
 def getAudio(text):
     try:
         # 上传的时候记得把关键信息去掉
-        cred = credential.Credential(SecretId, SecretKey)
+        cred = credential.Credential('AKIDvc3E8l7D3cuve6HDsHPHtEI5cttc4GBp', 'OWNwDEyRdYCZfU3LQEm33mFRM0SeZDZf')
         httpProfile = HttpProfile()
         httpProfile.endpoint = "tts.tencentcloudapi.com"
 
@@ -22,7 +22,7 @@ def getAudio(text):
         req = models.TextToVoiceRequest()
         params = {
             "Text": text,
-            "SessionId": SessionId,
+            "SessionId": '302000009733',
             "ModelType": -1,
             "VoiceType": 101001
         }

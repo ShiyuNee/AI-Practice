@@ -12,10 +12,10 @@ from wsgiref.handlers import format_date_time
 from datetime import datetime
 from time import mktime
 import _thread as thread
-import getAudio
-import CHN2Eng
-import text2text
-import text2audio
+from Audio2Audio import getAudio
+from Audio2Audio import CHN2Eng
+from Audio2Audio import text2text
+from Audio2Audio import text2audio
 import os
 
 STATUS_FIRST_FRAME = 0  # 第一帧的标识
@@ -154,13 +154,14 @@ def on_open(ws):
 
 if __name__ == "__main__":
     # 测试时候在此处正确填写相关信息即可运行
+
     res = ""
     filename = "D:\\AI\\audio\\test3"
     getAudio.start_audio(5, filename)
     filename += '.pcm'
     time1 = datetime.now()
-    wsParam = Ws_Param(APPID=APPID, APISecret=APISecret,
-                       APIKey=APIKey,
+    wsParam = Ws_Param(APPID='82b679ef', APISecret='ODU4ZjY1NTc3ZjNlYTU0YWZlM2NlMWY3',
+                       APIKey='eaf478b79fd160c243408bd15a8992ef',
                        AudioFile=filename)
     websocket.enableTrace(False)
     wsUrl = wsParam.create_url()
@@ -179,10 +180,23 @@ if __name__ == "__main__":
     #回答
     answerText = text2text.textBack(res)
     print("text to text: %s" % answerText)
-    text2audio.getAudio(answerText)
+
+    # text2audio.getAudio(answerText)
+
+    # 英文回答
+    host = "itrans.xfyun.cn"
+    gClass = CHN2Eng.get_result(host, answerText)
+    translateAnswer = gClass.call_url()
+    with open(r'D:\AI\Real-Time-Voice-Cloning-master\demo.txt','w') as f:
+        f.write(translateAnswer)
+    print('translate text: %s' % translateAnswer)
+
+    # 改变路径去生成音频
+    os.chdir(r'D:\AI\Real-Time-Voice-Cloning-master')
+    os.system('python demo_cli.py')
+
     os.chdir(r'D:\AI\wav2lip')
-    print(os.getcwd())
-    os.system('python inference.py --checkpoint_path D:\\AI\\wav2lip\\checkpoints\\wav2lip_gan.pth --face D:\\AI\\wav2lip\\tests\\video\\trump2.mp4 --audio D:\\AI\\Audio2Audio\\temp.wav')
+    os.system('python inference.py --checkpoint_path D:\\AI\\wav2lip\\checkpoints\\wav2lip_gan.pth --face D:\\AI\\wav2lip\\tests\\video\\trump2.mp4 --audio D:\\AI\\Real-Time-Voice-Cloning-master\\demo_output_00.wav')
 
 
 

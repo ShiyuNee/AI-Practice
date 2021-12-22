@@ -50,3 +50,13 @@
 
 :smile:结果：使用该模型合成的语音作为wav2lip的音频输入效果较好，同直接利用人声输入差别不大
 
+# :timer_clock:2021.12.21
+
+:grin:检查所有功能，实现一键运行
+
+:cry:在Real-Time-Voice-Cloning-master/demo_cli.py中可修改音频克隆原始声音和文字
+
+:poodle:配置完成后运行Audio2Audio/main.py即可实现所有功能
+
+:dog:requirements中使用conda + pip，若无法直接安装，可查看各文件夹内requirements文件进行环境配置
+
